@@ -299,10 +299,10 @@ class _MainScreenState extends State<MainScreen> {
             ),
             //
             Btn(
-              title: "CC",
+              title: "",
               // color: Colors.blueAccent,
               function: () {
-                buttonCall("CC");
+                buttonCall("AC");
               },
             ),
             Btn(

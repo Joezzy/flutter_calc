@@ -40,8 +40,10 @@ class Btn extends StatelessWidget {
             borderRadius: BorderRadius.circular(20.0),
           ),
           child: Center(
-            child: Text(title,
-                style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold)),
+            child: title != ''
+                ? Text(title,
+                    style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold))
+                : Icon(Icons.refresh),
           ),
         ),
       ),
