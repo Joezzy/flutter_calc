@@ -138,36 +138,6 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
-  buttonCall(String val) {
-    print(val);
-    setState(() {
-      if (val == "=") {
-        String eq = equation.replaceAll("x", "*");
-
-        try {
-          final expressions = ['$eq'];
-          for (final expression in expressions) {
-            print("'$expression' -> ${expression.interpret()}");
-            result = expression.interpret().toString();
-          }
-        } catch (e) {
-          result = "Error";
-        }
-      } else if (val == "AC") {
-        equation = "0";
-        result = "0";
-      } else {
-        if (equation == "0") {
-          equation = val;
-        } else {
-          equation = equation + val;
-        }
-      }
-    });
-
-    //
-  }
-
   Widget portraitKey() {
     return Container(
       height: MediaQuery.of(context).size.height * .60,
@@ -547,5 +517,35 @@ class _MainScreenState extends State<MainScreen> {
         ),
       ),
     );
+  }
+
+  buttonCall(String val) {
+    print(val);
+    setState(() {
+      if (val == "=") {
+        String eq = equation.replaceAll("x", "*");
+
+        try {
+          final expressions = ['$eq'];
+          for (final expression in expressions) {
+            print("'$expression' -> ${expression.interpret()}");
+            result = expression.interpret().toString();
+          }
+        } catch (e) {
+          result = "Error";
+        }
+      } else if (val == "AC") {
+        equation = "0";
+        result = "0";
+      } else {
+        if (equation == "0" || equation == "00") {
+          equation = val;
+        } else {
+          equation = equation + val;
+        }
+      }
+    });
+
+    //
   }
 }
